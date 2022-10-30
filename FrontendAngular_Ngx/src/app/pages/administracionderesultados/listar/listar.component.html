@@ -1,0 +1,68 @@
+<div class="content" role="main">
+  <div class="nav">
+    <img class="logo" src="../assets/images/Logo-Registraduria.png" alt="" />
+    <nav>
+      <ul class="nav-content">
+        <a
+          class="nav-item"
+          routerLink="/pages/seguridad/login"
+          routerLinkActive=""
+          >Carga de Resultados</a
+        >
+        <a
+          class="nav-item"
+          routerLink="/pages/seguridad/register"
+          routerLinkActive=""
+          >Listar Resultado</a
+        >
+        <a
+          class="nav-item"
+          routerLink="/pages/pagina-principal/paginaPrincipal"
+          routerLinkActive=""
+          >Cambiar Resultado</a
+        >
+      </ul>
+    </nav>
+  </div>
+  <div class="divider"></div>
+  <router-outlet></router-outlet>
+</div>
+
+<div class="col-lg-12">
+  <nb-card>
+    <nb-card-header>
+      ADMINISTRACIÓN RESULTADOS
+      <button type="button" class="btn btn-success" (click)="agregar()">
+        <i class="fas fa-plus"></i>
+      </button>
+    </nb-card-header>
+    <table class="table">
+      <tr>
+        <th *ngFor="let columaActual of nombresColumnas">{{ columaActual }}</th>
+      </tr>
+      <ng-container *ngFor="let resultadoActual of resultados">
+        <tr>
+          <td>{{ resultadoActual.candidato }}</td>
+          <td>{{ resultadoActual.mesa }}</td>
+          <td>{{ resultadoActual.votos }}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="editar(resultadoActual._id)"
+            >
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="eliminar(resultadoActual._id)"
+            >
+              <i class="fas fa-solid fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </ng-container>
+    </table>
+  </nb-card>
+</div>

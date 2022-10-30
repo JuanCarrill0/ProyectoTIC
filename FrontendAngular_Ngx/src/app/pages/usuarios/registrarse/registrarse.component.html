@@ -1,0 +1,94 @@
+
+<div class="content" role="main">
+    <div class="nav">
+      <nav>
+        <ul>
+            <img  class="logo" src="../assets/images/Logo-Registraduria.png" alt="">
+        </ul>
+        <ul class="nav-content">
+          <a class="nav-item" routerLink="/pages/seguridad/login" routerLinkActive="">Iniciar Sesión</a>
+          <a class="nav-item" routerLink="/pages/usuarios/registrarse" routerLinkActive="">Registrarse</a>
+          <a class="nav-item" routerLink="/pages/pagina-principal/paginaPrincipal" routerLinkActive="">Pagina Principal</a>
+        </ul>
+      </nav>
+    </div>
+    <div class="divider"></div>
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="col-lg-12">
+    <nb-card class="contentRegister">
+        <nb-card-header class="title" *ngIf="modoCreacion">
+            <h2>Registrarse</h2>
+        </nb-card-header>
+        <nb-card-header class="title" *ngIf="!modoCreacion">
+            <h2>Actualizar Usuario</h2>
+        </nb-card-header>
+        <nb-card-body class="form">
+            <div class="row">
+                <div class="col-3">
+                    <label>Seudonimo</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text" 
+                           [disabled]="!modoCreacion" 
+                           [(ngModel)]="elUsuario.seudonimo">
+                    <p *ngIf="intentoEnvio && elUsuario.seudonimo=='' ">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Correo</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="email" 
+                           [(ngModel)]="elUsuario.correo">
+                    <p *ngIf="intentoEnvio && elUsuario.correo=='' ">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Contraseña</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="password" 
+                           [(ngModel)]="elUsuario.contrasena">
+                    <p *ngIf="intentoEnvio && elUsuario.contrasena=='' ">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                    <button  *ngIf="modoCreacion" 
+                              class="btn btn-primary btn-block"  (click)="agregar()">
+                        Crear
+                    </button>
+                    <button *ngIf="!modoCreacion" 
+                            class="btn btn-primary btn-block"  (click)="editar()">
+                        Actualizar
+                    </button>
+            </div>
+        </nb-card-body>
+    </nb-card>
+</div>
+<!--
+<div class="content">
+    <h2 class="title">Registrarse</h2>
+    <div class="form">
+            <form class="form-register" action="">
+              <div class="form-box-1">
+                <p>Nombre de Usuario</p>
+                <input type="text" name="" id="">
+                <p>Correo</p>
+                <input type="text" name="" id="">
+                <p>Contraseña</p>
+                <input type="password" name="" id="">
+                <p>Verificar Contraseña</p>
+                <input type="password" name="" id="">
+                <button class="Button "type="submit">ENVIAR</button>
+              </div>
+            </form>
+    </div>
+</div>
+-->

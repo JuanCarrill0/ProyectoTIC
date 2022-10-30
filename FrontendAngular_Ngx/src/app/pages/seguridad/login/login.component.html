@@ -1,0 +1,29 @@
+<div class="content" role="main">
+    <div class="nav">
+      <nav>
+        <ul>
+            <img  class="logo" src="../assets/images/Logo-Registraduria.png" alt="">
+        </ul>
+        <ul class="nav-content">
+          <a class="nav-item" routerLink="/pages/seguridad/login" routerLinkActive="">Iniciar Sesión</a>
+          <a class="nav-item" routerLink="/pages/usuarios/registrarse" routerLinkActive="">Registrarse</a>
+          <a class="nav-item" routerLink="/pages/pagina-principal/paginaPrincipal" routerLinkActive="">Pagina Principal</a>
+        </ul>
+      </nav>
+    </div>
+    <div class="divider"></div>
+    <router-outlet></router-outlet>
+  </div>
+  
+<div class="content">
+    <h2 class="title">Iniciar Sesión</h2>
+    <nb-card class="form">
+        <nb-card-body class="login-form">
+            <p>Correo</p>
+            <input class="form-control" type="text" [(ngModel)]="correo"  name="" id="">
+            <p>Contraseña</p>
+            <input class="form-control" type="password" [(ngModel)]="contrasena"  name="" id="">
+            <button class="btn btn-primary btn-block" type="submit" (click)="login()">ENVIAR</button>
+          </nb-card-body>>
+    </nb-card>
+</div>
